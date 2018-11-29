@@ -24,4 +24,10 @@ contract CustomToken is NFTokenMetadata {
     require(msg.sender == owner);
     super._burn(_owner, _tokenId);
   }
+
+  // allow change of ownership (simple version without events)
+  function changeOwner(address _owner) external {
+    require(msg.sender == owner);
+    owner = _owner;
+  }
 }
